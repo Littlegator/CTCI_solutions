@@ -1,0 +1,41 @@
+#ifndef 1-6_HPP
+#define 1-6_HPP
+
+class llnode
+{
+	public:
+	void addNode(int valToAdd);
+
+	private:
+	llnode* next = NULL;
+	int data = 0;
+}
+
+llnode::addNode(int valToAdd)
+{
+	//declare variables	
+	llnode newNode = new(llnode);
+	llnode* curNode = next;
+
+	//store data in new node
+	newNode.data = valToAdd;
+
+	//if current node is already null (only 1 item in list)
+	if(curNode == NULL)
+	{
+		next = newNode;
+		return
+	}
+	
+	//otherwise iterate through list until next node is NULL
+	else while(*curNode.next != NULL)
+	{
+		curNode = *curNode.next;
+	}
+
+	//add item to end of list
+	*curNode.next = newNode;
+
+	return;
+}
+#endif //1-6_HPP
